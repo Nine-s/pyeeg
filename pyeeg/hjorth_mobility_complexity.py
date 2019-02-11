@@ -43,12 +43,12 @@ def hjorth(X, D=None):
         D = D.tolist()
 
     D.insert(0, X[0])  # pad the first difference
-    D = numpy.array(D)
+    D = numpy.array(D, dtype=object)
 
     n = len(X)
 
     M2 = float(sum(D ** 2)) / n
-    TP = sum(numpy.array(X) ** 2)
+    TP = sum(numpy.array(X,dtype=object) ** 2)
     M4 = 0
     for i in range(1, len(D)):
         M4 += (D[i] - D[i - 1]) ** 2
